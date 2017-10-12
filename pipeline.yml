@@ -1,0 +1,16 @@
+---
+resources:
+- name: myrepo 
+  type: git
+  source:
+    uri: https://github.com/mgwebb/hello-world.git
+
+jobs:
+- name: job-pass-files
+  public: true
+  plan:
+  - get: myrepo
+  - task: create-some-files
+    file: myrepo/create_some_files.yml
+  - task: show-some-files
+    file: myrepo/show_files.yml
