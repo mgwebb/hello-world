@@ -10,7 +10,7 @@ jobs:
   public: true
   plan:
   - get: myrepo
-    trigger: true
+    trigger: false
   - task: create-some-files
     file: myrepo/create_some_files.yml
   - task: show-some-files
@@ -20,7 +20,7 @@ jobs:
   public: true
   plan:
   - get: myrepo
-    trigger: false
+    trigger: true
     passed: [job-pass-files]
   - task: show-pretend-files
     file: myrepo/pretend_files.yml
