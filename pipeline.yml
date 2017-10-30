@@ -20,7 +20,7 @@ jobs:
   public: true
   plan:
   - get: myrepo
-    trigger: true
+    trigger: false
     passed: [job-pass-files]
   - task: show-pretend-files
     file: myrepo/pretend_files.yml
