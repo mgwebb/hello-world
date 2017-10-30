@@ -1,0 +1,15 @@
+---
+resources:
+- name: myrepo 
+  type: git
+  source:
+    uri: https://github.com/mgwebb/hello-world.git
+
+jobs:
+
+- name: second-step
+  public: true
+  plan:
+  - get: myrepo
+  - task: show-pretend-files
+    file: myrepo/pretend_files.yml
