@@ -10,8 +10,17 @@ jobs:
   public: true
   plan:
   - get: myrepo
-    trigger: true
+    trigger: false
   - task: create-some-files
     file: myrepo/create_some_files.yml
   - task: show-some-files
     file: myrepo/show_files.yml
+
+- name: second-step
+  public: true
+  plan:
+  - get: myrepo
+    trigger: true
+    passed: [job-pass-files]
+  - task: show-some-files
+    file: myrepo/pretend_files.yml
